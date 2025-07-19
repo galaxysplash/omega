@@ -16,6 +16,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE parser)
 add_subdirectory(src/lexer)
 target_link_libraries(${PROJECT_NAME} PRIVATE lexer)
 
-# classes
-add_subdirectory(src/classes)
-target_link_libraries(${PROJECT_NAME} PRIVATE classes)
+
+# token
+add_subdirectory(src/token)
+target_link_libraries(${PROJECT_NAME} PRIVATE token)
