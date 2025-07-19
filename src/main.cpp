@@ -1,20 +1,19 @@
 #include <print>
 
+#include <memory>
 #include <vector>
+
+#include <omega/token/Token.h>
+#include <omega/token/IdentifierToken.h>
 
 #include <ranges>
 
 int main(int argc, const char *argv[]) {
-  std::vector<int> numbers { // I know it's stduid to use a vector just for a few int's but thats not the point, OK
-    1, 5, 7,
-        3, 2,
-  };
-  const auto var = numbers | std::ranges::views::filter([&](const int i) -> bool {
-    return i > 2;
-  });
+  std::vector<std::unique_ptr<omega::Token>> tokens;
 
+  tokens.push_back(std::make_unique<omega::IdentifierToken>());
 
-  for (const auto &num : numbers) {
-    std::println("{}", num);
+  for (const std::unique_ptr<omega::Token> &token : tokens) {
+    std::println("{}", token->info());
   }
 }
